@@ -8,10 +8,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Text("Hello, Acorn!")
-        }
-        .padding()
+        FoodItemsView()
     }
 }
 

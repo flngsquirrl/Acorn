@@ -1,2 +1,5 @@
 --swiftversion 6.0
 --languagemode 6
+
+--disable trailingCommas
+--disable wrapMultilineStatementBraces
