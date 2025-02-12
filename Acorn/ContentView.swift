@@ -2,7 +2,7 @@
 // ContentView.swift
 // Acorn
 //
-// Created by flngsquirrl on 11/02/2025. 
+// Created by flngsquirrl on 11/02/2025.
 
 import SwiftUI
 
