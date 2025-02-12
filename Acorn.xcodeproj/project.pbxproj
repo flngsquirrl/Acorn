@@ -59,8 +59,8 @@
 			buildConfigurationList = C9FBB40C2D5BDEAC00B24AA5 /* Build configuration list for PBXNativeTarget "Acorn" */;
 			buildPhases = (
 				C9FBB3FA2D5BDEAB00B24AA5 /* Sources */,
-				C9FBB4252D5D101F00B24AA5 /* ShellScript */,
 				C9FBB42C2D5D17BF00B24AA5 /* ShellScript */,
+				C9FBB4252D5D101F00B24AA5 /* ShellScript */,
 				C9FBB3FB2D5BDEAB00B24AA5 /* Frameworks */,
 				C9FBB3FC2D5BDEAB00B24AA5 /* Resources */,
 			);
