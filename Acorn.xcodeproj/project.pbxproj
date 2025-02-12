@@ -53,6 +53,7 @@
 			buildConfigurationList = C9FBB40C2D5BDEAC00B24AA5 /* Build configuration list for PBXNativeTarget "Acorn" */;
 			buildPhases = (
 				C9FBB3FA2D5BDEAB00B24AA5 /* Sources */,
+				C9FBB4252D5D101F00B24AA5 /* ShellScript */,
 				C9FBB3FB2D5BDEAB00B24AA5 /* Frameworks */,
 				C9FBB3FC2D5BDEAB00B24AA5 /* Resources */,
 			);
@@ -113,6 +114,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C9FBB4252D5D101F00B24AA5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C9FBB3FA2D5BDEAB00B24AA5 /* Sources */ = {
@@ -254,6 +276,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Acorn/Preview Content\"";
 				DEVELOPMENT_TEAM = 755WLDCD84;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -283,6 +306,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Acorn/Preview Content\"";
 				DEVELOPMENT_TEAM = 755WLDCD84;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
