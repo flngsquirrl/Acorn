@@ -6,11 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		C9FBB42B2D5D164800B24AA5 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = C9FBB42A2D5D164200B24AA5 /* .swiftformat */; };
-		C9FBB4E42D5D3CBE00B24AA5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C9FBB4E32D5D3CB600B24AA5 /* .swiftlint.yml */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		C9FBB3FE2D5BDEAB00B24AA5 /* Acorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FBB42A2D5D164200B24AA5 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
@@ -120,8 +115,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9FBB4E42D5D3CBE00B24AA5 /* .swiftlint.yml in Resources */,
-				C9FBB42B2D5D164800B24AA5 /* .swiftformat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
