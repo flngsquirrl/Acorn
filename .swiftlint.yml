@@ -2,3 +2,6 @@ identifier_name:
     excluded: # excluded via string array
       - to
       - id
+
+switch_case_alignment:
+    indented_cases: true

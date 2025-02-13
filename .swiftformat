@@ -3,3 +3,5 @@
 
 --disable trailingCommas
 --disable wrapMultilineStatementBraces
+
+--indentcase true

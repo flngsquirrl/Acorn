@@ -32,28 +32,28 @@ struct FoodItemView: View {
 
     var expirationNote: String {
         switch item.state {
-        case let .good(days):
-            days > 5 ?
-                "Good for \(days) days" :
-                "Expires in \(days) days"
-        case let .bad(days):
-            "Expired \(days) days ago"
+            case let .good(days):
+                days > 5 ?
+                    "Good for \(days) days" :
+                    "Expires in \(days) days"
+            case let .bad(days):
+                "Expired \(days) days ago"
         }
     }
 
     var showWarning: Bool {
         switch item.state {
-        case let .good(days):
-            days < 5
-        case .bad:
-            true
+            case let .good(days):
+                days < 5
+            case .bad:
+                true
         }
     }
 
     var warningColor: Color {
         switch item.state {
-        case .good: .yellow
-        case .bad: .red
+            case .good: .yellow
+            case .bad: .red
         }
     }
 }
