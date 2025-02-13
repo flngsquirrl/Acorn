@@ -17,11 +17,16 @@ struct FoodItemsView: View {
                 }
             }
             .listStyle(.plain)
-            .navigationTitle("Food items")
+            .navigationTitle("list.title")
         }
     }
 }
 
-#Preview {
+#Preview("FoodItemsView: EN") {
     FoodItemsView()
+}
+
+#Preview("FoodItemsView: PL") {
+    FoodItemsView()
+        .environment(\.locale, Locale(identifier: "pl"))
 }
