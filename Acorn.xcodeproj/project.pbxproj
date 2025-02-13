@@ -13,6 +13,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		C95B39182D5E8EEA00EE098A /* Development */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Development;
+			sourceTree = "<group>";
+		};
 		C9FBB4002D5BDEAB00B24AA5 /* Acorn */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Acorn;
@@ -34,6 +39,7 @@
 		C9FBB3F52D5BDEAB00B24AA5 = {
 			isa = PBXGroup;
 			children = (
+				C95B39182D5E8EEA00EE098A /* Development */,
 				C9FBB4E32D5D3CB600B24AA5 /* .swiftlint.yml */,
 				C9FBB42A2D5D164200B24AA5 /* .swiftformat */,
 				C9FBB4002D5BDEAB00B24AA5 /* Acorn */,
@@ -57,7 +63,6 @@
 			buildConfigurationList = C9FBB40C2D5BDEAC00B24AA5 /* Build configuration list for PBXNativeTarget "Acorn" */;
 			buildPhases = (
 				C9FBB3FA2D5BDEAB00B24AA5 /* Sources */,
-				C9FBB42C2D5D17BF00B24AA5 /* ShellScript */,
 				C9FBB4252D5D101F00B24AA5 /* ShellScript */,
 				C9FBB3FB2D5BDEAB00B24AA5 /* Frameworks */,
 				C9FBB3FC2D5BDEAB00B24AA5 /* Resources */,
@@ -138,24 +143,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
-		};
-		C9FBB42C2D5D17BF00B24AA5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftformat > /dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
