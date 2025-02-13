@@ -8,16 +8,27 @@ import SwiftUI
 
 struct FoodItemsView: View {
     @State private var items = FoodItem.examples
+    @State private var filterModel: FilterModel = .init()
 
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(items) {
-                    FoodItemView(item: $0)
+            VStack(alignment: .leading) {
+                SegmentedFilterView(filterModel: filterModel)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(
+                        Rectangle()
+                            .fill(.background.secondary)
+                    )
+                List {
+                    ForEach(items) {
+                        FoodItemView(item: $0)
+                    }
                 }
+                .listStyle(.plain)
+                .navigationTitle("list.title")
             }
-            .listStyle(.plain)
-            .navigationTitle("list.title")
         }
     }
 }
