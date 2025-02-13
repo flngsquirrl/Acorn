@@ -17,14 +17,11 @@ extension Date {
 
     func trimTime() -> Date {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: self)
-        let year = components.year
-        let month = components.month
-        let day = components.day
 
         var newComponents = DateComponents()
-        newComponents.year = year
-        newComponents.month = month
-        newComponents.day = day
+        newComponents.year = components.year
+        newComponents.month = components.month
+        newComponents.day = components.day
 
         return Calendar.current.date(from: newComponents)!
     }
