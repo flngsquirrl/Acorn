@@ -10,8 +10,20 @@
 		C95B399B2D5E9B5B00EE098A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C95B399A2D5E9B5B00EE098A /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C95B3B2F2D5FCFA100EE098A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9FBB3F62D5BDEAB00B24AA5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9FBB3FD2D5BDEAB00B24AA5;
+			remoteInfo = Acorn;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		C95B399A2D5E9B5B00EE098A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		C95B3B2B2D5FCFA000EE098A /* AcornTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AcornTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C95B3B342D5FE4E100EE098A /* Acorn.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Acorn.xctestplan; sourceTree = "<group>"; };
 		C9FBB3FE2D5BDEAB00B24AA5 /* Acorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FBB42A2D5D164200B24AA5 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		C9FBB4E32D5D3CB600B24AA5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -23,6 +35,11 @@
 			path = Development;
 			sourceTree = "<group>";
 		};
+		C95B3B2C2D5FCFA000EE098A /* AcornTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AcornTests;
+			sourceTree = "<group>";
+		};
 		C9FBB4002D5BDEAB00B24AA5 /* Acorn */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Acorn;
@@ -31,6 +48,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C95B3B282D5FCFA000EE098A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9FBB3FB2D5BDEAB00B24AA5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -44,11 +68,13 @@
 		C9FBB3F52D5BDEAB00B24AA5 = {
 			isa = PBXGroup;
 			children = (
+				C95B3B342D5FE4E100EE098A /* Acorn.xctestplan */,
 				C95B399A2D5E9B5B00EE098A /* Localizable.xcstrings */,
 				C95B39182D5E8EEA00EE098A /* Development */,
 				C9FBB4E32D5D3CB600B24AA5 /* .swiftlint.yml */,
 				C9FBB42A2D5D164200B24AA5 /* .swiftformat */,
 				C9FBB4002D5BDEAB00B24AA5 /* Acorn */,
+				C95B3B2C2D5FCFA000EE098A /* AcornTests */,
 				C9FBB3FF2D5BDEAB00B24AA5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				C9FBB3FE2D5BDEAB00B24AA5 /* Acorn.app */,
+				C95B3B2B2D5FCFA000EE098A /* AcornTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +91,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C95B3B2A2D5FCFA000EE098A /* AcornTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C95B3B312D5FCFA100EE098A /* Build configuration list for PBXNativeTarget "AcornTests" */;
+			buildPhases = (
+				C95B3B272D5FCFA000EE098A /* Sources */,
+				C95B3B282D5FCFA000EE098A /* Frameworks */,
+				C95B3B292D5FCFA000EE098A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C95B3B302D5FCFA100EE098A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C95B3B2C2D5FCFA000EE098A /* AcornTests */,
+			);
+			name = AcornTests;
+			packageProductDependencies = (
+			);
+			productName = AcornTests;
+			productReference = C95B3B2B2D5FCFA000EE098A /* AcornTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C9FBB3FD2D5BDEAB00B24AA5 /* Acorn */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9FBB40C2D5BDEAC00B24AA5 /* Build configuration list for PBXNativeTarget "Acorn" */;
@@ -97,6 +147,10 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					C95B3B2A2D5FCFA000EE098A = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = C9FBB3FD2D5BDEAB00B24AA5;
+					};
 					C9FBB3FD2D5BDEAB00B24AA5 = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -117,11 +171,19 @@
 			projectRoot = "";
 			targets = (
 				C9FBB3FD2D5BDEAB00B24AA5 /* Acorn */,
+				C95B3B2A2D5FCFA000EE098A /* AcornTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C95B3B292D5FCFA000EE098A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9FBB3FC2D5BDEAB00B24AA5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -154,6 +216,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C95B3B272D5FCFA000EE098A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9FBB3FA2D5BDEAB00B24AA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -163,7 +232,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C95B3B302D5FCFA100EE098A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9FBB3FD2D5BDEAB00B24AA5 /* Acorn */;
+			targetProxy = C95B3B2F2D5FCFA100EE098A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		C95B3B322D5FCFA100EE098A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 755WLDCD84;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flngsquirrl.AcornTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Acorn.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Acorn";
+			};
+			name = Debug;
+		};
+		C95B3B332D5FCFA100EE098A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 755WLDCD84;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flngsquirrl.AcornTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Acorn.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Acorn";
+			};
+			name = Release;
+		};
 		C9FBB40A2D5BDEAC00B24AA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -346,6 +459,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C95B3B312D5FCFA100EE098A /* Build configuration list for PBXNativeTarget "AcornTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C95B3B322D5FCFA100EE098A /* Debug */,
+				C95B3B332D5FCFA100EE098A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C9FBB3F92D5BDEAB00B24AA5 /* Build configuration list for PBXProject "Acorn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

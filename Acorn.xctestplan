@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "D6A4E329-99A0-4328-BA25-ABDCCEFD07B1",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Acorn.xcodeproj",
+      "identifier" : "C9FBB3FD2D5BDEAB00B24AA5",
+      "name" : "Acorn"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Acorn.xcodeproj",
+        "identifier" : "C95B3B2A2D5FCFA000EE098A",
+        "name" : "AcornTests"
+      }
+    }
+  ],
+  "version" : 1
+}
