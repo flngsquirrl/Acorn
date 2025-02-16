@@ -25,6 +25,7 @@ struct FilterOptionView: View {
                     .fill(isSelected ? .filterOptionSelected : .clear)
             )
             .foregroundStyle(isSelected ? .white : .primary.opacity(0.7))
+            .minHitTarget()
             .contentShape(Rectangle())
     }
 }
