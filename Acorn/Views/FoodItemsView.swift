@@ -27,10 +27,7 @@ extension FoodItemsView {
             .padding(.vertical, 10)
             .padding(.horizontal)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(
-                Rectangle()
-                    .fill(.background.secondary)
-            )
+            .background(.background.secondary)
     }
 
     var list: some View {

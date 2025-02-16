@@ -29,10 +29,7 @@ struct SegmentedFilterView: View {
             SegmentedFilterView(filterModel: FilterModel())
                 .padding(.vertical, 8)
                 .padding(.horizontal)
-                .background(
-                    Rectangle()
-                        .fill(.background.secondary)
-                )
+                .background(.background.secondary)
         }
     }
 #endif
