@@ -17,7 +17,7 @@ struct FilterOptionView: View {
         Text(localizedLabel)
             .font(.footnote)
             .bold()
-            .padding(.vertical, 6)
+            .padding(.vertical, 10)
             .padding(.horizontal)
             .background(
                 Rectangle()
