@@ -12,24 +12,34 @@ struct FoodItemsView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
-                SegmentedFilterView(filterModel: filterModel)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(
-                        Rectangle()
-                            .fill(.background.secondary)
-                    )
-                List {
-                    ForEach(items) {
-                        FoodItemView(item: $0)
-                    }
-                }
-                .listStyle(.plain)
-                .navigationTitle("list.title")
+            VStack {
+                filter
+                list
+            }
+            .navigationTitle("list.title")
+        }
+    }
+}
+
+extension FoodItemsView {
+    var filter: some View {
+        SegmentedFilterView(filterModel: filterModel)
+            .padding(.vertical, 10)
+            .padding(.horizontal)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
+                Rectangle()
+                    .fill(.background.secondary)
+            )
+    }
+
+    var list: some View {
+        List {
+            ForEach(items) {
+                FoodItemView(item: $0)
             }
         }
+        .listStyle(.plain)
     }
 }
 
