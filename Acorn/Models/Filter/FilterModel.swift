@@ -8,15 +8,15 @@ import Observation
 @MainActor
 @Observable
 class FilterModel {
-    var selected: Set<FilterOption>
+    var selectedOptions: Set<FilterOption>
 
-    init(selected: Set<FilterOption> = .init(FilterOption.allCases)) {
-        self.selected = selected
+    init(selectedOptions: Set<FilterOption> = .init(FilterOption.allCases)) {
+        self.selectedOptions = selectedOptions
         processPostTurnOn()
     }
 
     func isSelected(_ option: FilterOption) -> Bool {
-        selected.contains(option)
+        selectedOptions.contains(option)
     }
 
     func toggle(_ option: FilterOption) {
@@ -31,27 +31,27 @@ class FilterModel {
 
     private func turnOff(_ option: FilterOption) {
         if option == .all {
-            selected = []
+            selectedOptions = []
         } else {
-            selected.remove(option)
-            selected.remove(.all)
+            selectedOptions.remove(option)
+            selectedOptions.remove(.all)
         }
     }
 
     private func turnOn(_ option: FilterOption) {
-        selected.insert(option)
+        selectedOptions.insert(option)
         processPostTurnOn()
     }
 
     private func processPostTurnOn() {
         let maxCount = FilterOption.allCases.count
 
-        guard selected.count != maxCount else {
+        guard selectedOptions.count != maxCount else {
             return
         }
 
-        if isSelected(.all) || selected.count == maxCount - 1 {
-            selected = .init(FilterOption.allCases)
+        if isSelected(.all) || selectedOptions.count == maxCount - 1 {
+            selectedOptions = .init(FilterOption.allCases)
         }
     }
 }

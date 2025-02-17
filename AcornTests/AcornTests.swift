@@ -14,7 +14,7 @@ struct FilterModelTests {
         let model = await FilterModel()
 
         for option in FilterOption.allCases {
-            #expect(await model.selected.contains(option))
+            #expect(await model.selectedOptions.contains(option))
         }
     }
 
@@ -30,9 +30,9 @@ struct FilterModelTests {
         ([FilterOption.good, FilterOption.bad, FilterOption.expiring], FilterOption.allCases)
     ])
     func selectedAfterCustomInit(initOptions: [FilterOption], expected: [FilterOption]) async throws {
-        let model = await FilterModel(selected: Set(initOptions))
+        let model = await FilterModel(selectedOptions: Set(initOptions))
 
-        await checkEqual(test: model.selected, expected: expected)
+        await checkEqual(test: model.selectedOptions, expected: expected)
     }
 
     @Test("Result of toggling a single option from a specified initial selection", arguments: [
@@ -62,12 +62,12 @@ struct FilterModelTests {
         (FilterOption.expiring, [FilterOption.bad], [FilterOption.expiring, FilterOption.bad])
     ])
     func toggle(option: FilterOption, initOptions: [FilterOption], expected: [FilterOption]) async throws {
-        let model = await FilterModel(selected: .init(initOptions))
-        try await #require(isEqual(test: model.selected, expected: initOptions))
+        let model = await FilterModel(selectedOptions: .init(initOptions))
+        try await #require(isEqual(test: model.selectedOptions, expected: initOptions))
 
         await model.toggle(option)
 
-        await checkEqual(test: model.selected, expected: expected)
+        await checkEqual(test: model.selectedOptions, expected: expected)
     }
 
     @Test("Selection check", arguments: [
@@ -93,8 +93,8 @@ struct FilterModelTests {
         (FilterOption.all, [FilterOption.expiring], false)
     ])
     func isSelected(option: FilterOption, initOptions: [FilterOption], expected: Bool) async throws {
-        let model = await FilterModel(selected: .init(initOptions))
-        try await #require(isEqual(test: initOptions, expected: model.selected))
+        let model = await FilterModel(selectedOptions: .init(initOptions))
+        try await #require(isEqual(test: initOptions, expected: model.selectedOptions))
 
         await #expect(model.isSelected(option) == expected)
     }
