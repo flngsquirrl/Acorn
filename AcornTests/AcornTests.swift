@@ -9,8 +9,8 @@ import Testing
 
 @Suite
 struct FilterModelTests {
-    @Test("Selection after default init")
-    func defaultInit() async throws {
+    @Test("Selected options after default init")
+    func selectedAfterDefaultInit() async throws {
         let model = await FilterModel()
 
         for option in FilterOption.allCases {
@@ -18,7 +18,8 @@ struct FilterModelTests {
         }
     }
 
-    @Test("Selection after custom init", arguments: [
+    @Test("Selected options after custom init", arguments: [
+        ([], []),
         ([FilterOption.all], FilterOption.allCases),
         ([FilterOption.good], [FilterOption.good]),
         ([FilterOption.bad], [FilterOption.bad]),
@@ -28,74 +29,95 @@ struct FilterModelTests {
         ([FilterOption.bad, FilterOption.expiring], [FilterOption.bad, FilterOption.expiring]),
         ([FilterOption.good, FilterOption.bad, FilterOption.expiring], FilterOption.allCases)
     ])
-    func customInit(initOptions: [FilterOption], expectedSelection: [FilterOption]) async throws {
+    func selectedAfterCustomInit(initOptions: [FilterOption], expected: [FilterOption]) async throws {
         let model = await FilterModel(selected: Set(initOptions))
 
-        await checkEqual(testOptions: model.selected, expectedOptions: expectedSelection)
+        await checkEqual(test: model.selected, expected: expected)
     }
 
-    @Test("Toggle single option", arguments: [
-        (FilterOption.all, []),
-        (FilterOption.good, [FilterOption.bad, FilterOption.expiring]),
-        (FilterOption.bad, [FilterOption.good, FilterOption.expiring]),
-        (FilterOption.expiring, [FilterOption.good, FilterOption.bad])
+    @Test("Result of toggling a single option from a specified initial selection", arguments: [
+        // initial selection: full selection
+        (FilterOption.all, FilterOption.allCases, []),
+        (FilterOption.good, FilterOption.allCases, [FilterOption.bad, FilterOption.expiring]),
+        (FilterOption.bad, FilterOption.allCases, [FilterOption.good, FilterOption.expiring]),
+        (FilterOption.expiring, FilterOption.allCases, [FilterOption.good, FilterOption.bad]),
+        // initial selection: none
+        (FilterOption.all, [], FilterOption.allCases),
+        (FilterOption.good, [], [FilterOption.good]),
+        (FilterOption.bad, [], [FilterOption.bad]),
+        (FilterOption.expiring, [], [FilterOption.expiring]),
+        // deselecting from every single selection
+        (FilterOption.good, [FilterOption.good], []),
+        (FilterOption.bad, [FilterOption.bad], []),
+        (FilterOption.expiring, [FilterOption.expiring], []),
+        // every non-matching single combination
+        (FilterOption.all, [FilterOption.good], FilterOption.allCases),
+        (FilterOption.all, [FilterOption.bad], FilterOption.allCases),
+        (FilterOption.all, [FilterOption.expiring], FilterOption.allCases),
+        (FilterOption.good, [FilterOption.bad], [FilterOption.good, FilterOption.bad]),
+        (FilterOption.good, [FilterOption.expiring], [FilterOption.good, FilterOption.expiring]),
+        (FilterOption.bad, [FilterOption.good], [FilterOption.bad, FilterOption.good]),
+        (FilterOption.bad, [FilterOption.expiring], [FilterOption.bad, FilterOption.expiring]),
+        (FilterOption.expiring, [FilterOption.good], [FilterOption.expiring, FilterOption.good]),
+        (FilterOption.expiring, [FilterOption.bad], [FilterOption.expiring, FilterOption.bad])
     ])
-    func toggle(option: FilterOption, expectedSelection: [FilterOption]) async throws {
-        let model = await FilterModel()
+    func toggle(option: FilterOption, initOptions: [FilterOption], expected: [FilterOption]) async throws {
+        let model = await FilterModel(selected: .init(initOptions))
+        try await #require(isEqual(test: model.selected, expected: initOptions))
 
         await model.toggle(option)
 
-        await checkEqual(testOptions: model.selected, expectedOptions: expectedSelection)
-    }
-
-    @Test("Toggle chain of options", arguments: [
-        ([FilterOption.all, FilterOption.all], FilterOption.allCases),
-        ([FilterOption.all, FilterOption.good], [FilterOption.good]),
-        ([FilterOption.all, FilterOption.bad], [FilterOption.bad]),
-        ([FilterOption.all, FilterOption.expiring], [FilterOption.expiring]),
-        ([FilterOption.good, FilterOption.good], FilterOption.allCases),
-        ([FilterOption.bad, FilterOption.bad], FilterOption.allCases),
-        ([FilterOption.expiring, FilterOption.expiring], FilterOption.allCases),
-        ([FilterOption.all, FilterOption.bad, FilterOption.good, FilterOption.expiring], FilterOption.allCases),
-        ([FilterOption.good, FilterOption.bad], [FilterOption.expiring]),
-        ([FilterOption.good, FilterOption.expiring], [FilterOption.bad]),
-        ([FilterOption.bad, FilterOption.expiring], [FilterOption.good])
-    ])
-    func toggle(chain: [FilterOption], expectedSelection: [FilterOption]) async throws {
-        let model = await FilterModel()
-
-        for option in chain {
-            await model.toggle(option)
-        }
-
-        await checkEqual(testOptions: model.selected, expectedOptions: expectedSelection)
+        await checkEqual(test: model.selected, expected: expected)
     }
 
     @Test("Selection check", arguments: [
-        ([FilterOption.all], FilterOption.all, true),
-        ([FilterOption.all], FilterOption.good, true),
-        ([FilterOption.all], FilterOption.bad, true),
-        ([FilterOption.all], FilterOption.expiring, true),
-        ([FilterOption.good], FilterOption.good, true),
-        ([FilterOption.good], FilterOption.bad, false),
-        ([FilterOption.good], FilterOption.expiring, false),
-        ([FilterOption.good], FilterOption.all, false)
+        // initial selection: all
+        (FilterOption.all, FilterOption.allCases, true),
+        (FilterOption.good, FilterOption.allCases, true),
+        (FilterOption.bad, FilterOption.allCases, true),
+        (FilterOption.expiring, FilterOption.allCases, true),
+        // initial selection: good
+        (FilterOption.good, [FilterOption.good], true),
+        (FilterOption.bad, [FilterOption.good], false),
+        (FilterOption.expiring, [FilterOption.good], false),
+        (FilterOption.all, [FilterOption.good], false),
+        // initial selection: bad
+        (FilterOption.good, [FilterOption.bad], false),
+        (FilterOption.bad, [FilterOption.bad], true),
+        (FilterOption.expiring, [FilterOption.bad], false),
+        (FilterOption.all, [FilterOption.bad], false),
+        // initial selection: expiring
+        (FilterOption.good, [FilterOption.expiring], false),
+        (FilterOption.bad, [FilterOption.expiring], false),
+        (FilterOption.expiring, [FilterOption.expiring], true),
+        (FilterOption.all, [FilterOption.expiring], false)
     ])
-    func isSelected(selected: [FilterOption], testOption: FilterOption, expectedResult: Bool) async throws {
-        let model = await FilterModel(selected: .init(selected))
+    func isSelected(option: FilterOption, initOptions: [FilterOption], expected: Bool) async throws {
+        let model = await FilterModel(selected: .init(initOptions))
+        try await #require(isEqual(test: initOptions, expected: model.selected))
 
-        await #expect(model.isSelected(testOption) == expectedResult)
+        await #expect(model.isSelected(option) == expected)
     }
 
-    func checkEqual(testOptions: some Collection<FilterOption>, expectedOptions: some Collection<FilterOption>) {
-        guard !expectedOptions.isEmpty else {
-            #expect(testOptions.isEmpty)
+    func checkEqual(test: some Collection<FilterOption>, expected: some Collection<FilterOption>) {
+        guard !expected.isEmpty else {
+            #expect(test.isEmpty)
             return
         }
 
-        #expect(testOptions.count == expectedOptions.count)
-        for option in expectedOptions {
-            #expect(testOptions.contains(option))
+        #expect(test.count == expected.count)
+        for option in expected {
+            #expect(test.contains(option))
         }
+    }
+
+    func isEqual(test: some Collection<FilterOption>, expected: some Collection<FilterOption>) -> Bool {
+        guard test.count == expected.count else {
+            return false
+        }
+        for option in expected where !test.contains(option) {
+            return false
+        }
+        return true
     }
 }
