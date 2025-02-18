@@ -32,13 +32,13 @@ struct SegmentedFilterView: View {
                 .background(.background.secondary)
         }
     }
+
+    #Preview("SegmentedFilterView: PL", traits: .sizeThatFitsLayout) {
+        SegmentedFilterPreview()
+            .environment(\.locale, Locale(identifier: "pl"))
+    }
+
+    #Preview("SegmentedFilterView: EN", traits: .sizeThatFitsLayout) {
+        SegmentedFilterPreview()
+    }
 #endif
-
-#Preview("SegmentedFilterView: PL", traits: .sizeThatFitsLayout) {
-    SegmentedFilterPreview()
-        .environment(\.locale, Locale(identifier: "pl"))
-}
-
-#Preview("SegmentedFilterView: EN", traits: .sizeThatFitsLayout) {
-    SegmentedFilterPreview()
-}
