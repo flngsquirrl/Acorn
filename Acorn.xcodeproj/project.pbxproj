@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C945F3E82D662B6D00C7A20C /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = C945F3E72D662B6D00C7A20C /* ViewInspector */; };
 		C95B399B2D5E9B5B00EE098A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C95B399A2D5E9B5B00EE098A /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C945F3E82D662B6D00C7A20C /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +111,7 @@
 			);
 			name = AcornTests;
 			packageProductDependencies = (
+				C945F3E72D662B6D00C7A20C /* ViewInspector */,
 			);
 			productName = AcornTests;
 			productReference = C95B3B2B2D5FCFA000EE098A /* AcornTests.xctest */;
@@ -165,6 +168,9 @@
 			);
 			mainGroup = C9FBB3F52D5BDEAB00B24AA5;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C945F3E62D662B6D00C7A20C /* XCRemoteSwiftPackageReference "ViewInspector" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C9FBB3FF2D5BDEAB00B24AA5 /* Products */;
 			projectDirPath = "";
@@ -487,6 +493,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C945F3E62D662B6D00C7A20C /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C945F3E72D662B6D00C7A20C /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C945F3E62D662B6D00C7A20C /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C9FBB3F62D5BDEAB00B24AA5 /* Project object */;
 }
