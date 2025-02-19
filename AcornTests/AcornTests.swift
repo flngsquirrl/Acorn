@@ -7,18 +7,19 @@
 @testable import Acorn
 import Testing
 
+@MainActor
 @Suite
 struct FilterModelTests {
-    @Test("Selected options after default init")
-    func selectedAfterDefaultInit() async throws {
-        let model = await FilterModel()
+    @Test("Selected options are set correctly after default init")
+    func selectedOptions_afterDefaultInit() async throws {
+        let model = FilterModel()
 
         for option in FilterOption.allCases {
-            #expect(await model.selectedOptions.contains(option))
+            #expect(model.selectedOptions.contains(option))
         }
     }
 
-    @Test("Selected options after custom init", arguments: [
+    @Test("Selected options are set correctly after custom init", arguments: [
         ([], []),
         ([FilterOption.all], FilterOption.allCases),
         ([FilterOption.good], [FilterOption.good]),
@@ -29,13 +30,13 @@ struct FilterModelTests {
         ([FilterOption.bad, FilterOption.expiring], [FilterOption.bad, FilterOption.expiring]),
         ([FilterOption.good, FilterOption.bad, FilterOption.expiring], FilterOption.allCases)
     ])
-    func selectedAfterCustomInit(initOptions: [FilterOption], expected: [FilterOption]) async throws {
-        let model = await FilterModel(selectedOptions: Set(initOptions))
+    func selectedOptions_afterCustomInit(initOptions: [FilterOption], expected: [FilterOption]) async throws {
+        let model = FilterModel(selectedOptions: Set(initOptions))
 
-        await checkEqual(test: model.selectedOptions, expected: expected)
+        checkEqual(test: model.selectedOptions, expected: expected)
     }
 
-    @Test("Result of toggling a single option from a specified initial selection", arguments: [
+    @Test("Toggling a single option updates the selected options correctly", arguments: [
         // initial selection: full selection
         (FilterOption.all, FilterOption.allCases, []),
         (FilterOption.good, FilterOption.allCases, [FilterOption.bad, FilterOption.expiring]),
@@ -62,15 +63,15 @@ struct FilterModelTests {
         (FilterOption.expiring, [FilterOption.bad], [FilterOption.expiring, FilterOption.bad])
     ])
     func toggle(option: FilterOption, initOptions: [FilterOption], expected: [FilterOption]) async throws {
-        let model = await FilterModel(selectedOptions: .init(initOptions))
-        try await #require(isEqual(test: model.selectedOptions, expected: initOptions))
+        let model = FilterModel(selectedOptions: .init(initOptions))
+        try #require(isEqual(test: model.selectedOptions, expected: initOptions))
 
-        await model.toggle(option)
+        model.toggle(option)
 
-        await checkEqual(test: model.selectedOptions, expected: expected)
+        checkEqual(test: model.selectedOptions, expected: expected)
     }
 
-    @Test("Selection check", arguments: [
+    @Test("Selection check returns correct value", arguments: [
         // initial selection: all
         (FilterOption.all, FilterOption.allCases, true),
         (FilterOption.good, FilterOption.allCases, true),
@@ -93,10 +94,10 @@ struct FilterModelTests {
         (FilterOption.all, [FilterOption.expiring], false)
     ])
     func isSelected(option: FilterOption, initOptions: [FilterOption], expected: Bool) async throws {
-        let model = await FilterModel(selectedOptions: .init(initOptions))
-        try await #require(isEqual(test: initOptions, expected: model.selectedOptions))
+        let model = FilterModel(selectedOptions: .init(initOptions))
+        try #require(isEqual(test: initOptions, expected: model.selectedOptions))
 
-        await #expect(model.isSelected(option) == expected)
+        #expect(model.isSelected(option) == expected)
     }
 
     func checkEqual(test: some Collection<FilterOption>, expected: some Collection<FilterOption>) {
