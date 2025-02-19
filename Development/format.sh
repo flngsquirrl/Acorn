@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "---- Swift Format: begin ----"
 if [[ "$(uname -m)" == arm64 ]]; then
     export PATH="/opt/homebrew/bin:$PATH"

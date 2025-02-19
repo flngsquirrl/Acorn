@@ -1,2 +1,4 @@
-sh ./format.sh
-sh ./git-check.sh
+#!/usr/bin/env bash
+
+./format.sh
+./git-check.sh
