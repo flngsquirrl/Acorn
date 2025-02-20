@@ -8,7 +8,7 @@ import SwiftUI
 
 struct FoodItemsView: View {
     @State private var items = FoodItem.examples
-    @State private var filterModel: FilterModel = .init()
+    @State private var filterModel = AppFilterModel()
 
     var body: some View {
         NavigationStack {

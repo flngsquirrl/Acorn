@@ -11,30 +11,21 @@ import ViewInspector
 
 @MainActor
 struct SegmentedFilterViewTests {
-    @Test("Filter model selection is updated after an option is tapped",
-          arguments: [
-              (FilterOption.all, true),
-              (FilterOption.all, false),
-              (FilterOption.good, true),
-              (FilterOption.good, false),
-              (FilterOption.bad, true),
-              (FilterOption.bad, false),
-              (FilterOption.expiring, true),
-              (FilterOption.expiring, false)
-          ])
-    func filterModelSelection_updatedAfterOptionTapped(option: FilterOption, isSelected: Bool) async throws {
-        let model = try arrangeFilterModel(with: option, isSelected: isSelected)
+    @Test("Filter model toggle is called after an option is tapped",
+          arguments: FilterOption.allCases)
+    func toggleFilterModel_afterOptionTapped(option: FilterOption) async throws {
+        let model = try arrangeFilterModel()
+        try #require(model.optionToggleCalls[option, default: 0] == 0)
+
         let view = arrangeTestView(with: model)
 
         try tap(option: option, in: view)
 
-        #expect(model.isSelected(option) != isSelected)
+        #expect(model.optionToggleCalls[option] == 1)
     }
 
-    func arrangeFilterModel(with option: FilterOption, isSelected: Bool) throws -> FilterModel {
-        let selectedOptions: Set<FilterOption> = .init(isSelected ? [option] : [])
-        let model = FilterModel(selectedOptions: selectedOptions)
-        try #require(model.isSelected(option) == isSelected)
+    func arrangeFilterModel() throws -> MockFilterModel {
+        let model = MockFilterModel()
         return model
     }
 

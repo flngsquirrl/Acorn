@@ -26,7 +26,7 @@ struct SegmentedFilterView: View {
 #if DEBUG
     struct SegmentedFilterPreview: View {
         var body: some View {
-            SegmentedFilterView(filterModel: FilterModel())
+            SegmentedFilterView(filterModel: AppFilterModel())
                 .padding(.vertical, 8)
                 .padding(.horizontal)
                 .background(.background.secondary)

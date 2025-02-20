@@ -1,5 +1,5 @@
 //
-// FilterModelTests.swift
+// AppFilterModelTests.swift
 // Acorn
 //
 // Created by flngsquirrl on 14/02/2025.
@@ -9,10 +9,10 @@ import Testing
 
 @MainActor
 @Suite
-struct FilterModelTests {
+struct AppFilterModelTests {
     @Test("Selected options are set correctly after default init")
     func selectedOptions_afterDefaultInit() async throws {
-        let model = FilterModel()
+        let model = AppFilterModel()
 
         for option in FilterOption.allCases {
             #expect(model.selectedOptions.contains(option))
@@ -31,7 +31,7 @@ struct FilterModelTests {
         ([FilterOption.good, FilterOption.bad, FilterOption.expiring], FilterOption.allCases)
     ])
     func selectedOptions_afterCustomInit(initOptions: [FilterOption], expected: [FilterOption]) async throws {
-        let model = FilterModel(selectedOptions: Set(initOptions))
+        let model = AppFilterModel(selectedOptions: Set(initOptions))
 
         checkEqual(test: model.selectedOptions, expected: expected)
     }
@@ -63,7 +63,7 @@ struct FilterModelTests {
         (FilterOption.expiring, [FilterOption.bad], [FilterOption.expiring, FilterOption.bad])
     ])
     func toggle(option: FilterOption, initOptions: [FilterOption], expected: [FilterOption]) async throws {
-        let model = FilterModel(selectedOptions: .init(initOptions))
+        let model = AppFilterModel(selectedOptions: .init(initOptions))
         try #require(isEqual(test: model.selectedOptions, expected: initOptions))
 
         model.toggle(option)
@@ -94,7 +94,7 @@ struct FilterModelTests {
         (FilterOption.all, [FilterOption.expiring], false)
     ])
     func isSelected(option: FilterOption, initOptions: [FilterOption], expected: Bool) async throws {
-        let model = FilterModel(selectedOptions: .init(initOptions))
+        let model = AppFilterModel(selectedOptions: .init(initOptions))
         try #require(isEqual(test: initOptions, expected: model.selectedOptions))
 
         #expect(model.isSelected(option) == expected)
