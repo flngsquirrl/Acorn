@@ -15,6 +15,9 @@ struct FoodItemsView: View {
             VStack {
                 filter
                 list
+                    .safeAreaInset(edge: .bottom, alignment: .trailing) {
+                        addItemButton
+                    }
             }
             .navigationTitle("list.title")
         }
@@ -37,6 +40,12 @@ extension FoodItemsView {
             }
         }
         .listStyle(.plain)
+    }
+
+    var addItemButton: some View {
+        AddItemButton()
+            .padding([.bottom, .trailing])
+            .padding(.top, 20)
     }
 }
 

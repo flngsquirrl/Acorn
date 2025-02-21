@@ -69,6 +69,23 @@
         }
       }
     },
+    "list.addItem.button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add item"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dodaj produkt"
+          }
+        }
+      }
+    },
     "list.item.expired%lld" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -252,7 +269,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jedzenie"
+            "value" : "Produkty"
           }
         }
       }
