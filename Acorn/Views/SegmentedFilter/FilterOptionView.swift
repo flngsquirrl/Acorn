@@ -22,7 +22,7 @@ struct FilterOptionView: View {
             .background(
                 Rectangle()
                     .strokeBorder(lineWidth: 1)
-                    .fill(isSelected ? .filterOptionSelected : .clear)
+                    .fill(isSelected ? .accent : .clear)
             )
             .foregroundStyle(isSelected ? .white : .primary.opacity(0.7))
             .minHitTarget()
