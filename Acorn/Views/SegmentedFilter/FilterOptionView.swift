@@ -20,8 +20,8 @@ struct FilterOptionView: View {
             .padding(.vertical, 10)
             .padding(.horizontal)
             .background(
-                Rectangle()
-                    .strokeBorder(lineWidth: 1)
+                RoundedRectangle(cornerRadius: 6)
+                    .strokeBorder(lineWidth: isSelected ? 0 : 1)
                     .fill(isSelected ? .accent : .clear)
             )
             .foregroundStyle(isSelected ? .white : .primary.opacity(0.7))
