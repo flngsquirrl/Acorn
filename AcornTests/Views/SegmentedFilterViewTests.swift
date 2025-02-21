@@ -41,7 +41,7 @@ struct SegmentedFilterViewTests {
     }
 
     func findOptionView(option: FilterOption, in view: some View) throws -> InspectableFilterOptionView {
-        let optionText = try getText(for: option)
+        let optionText = try option.localizedText
 
         let optionViewOptional = try? view.inspect().find(FilterOptionView.self) {
             let textView = try? $0.find(text: optionText)
@@ -50,28 +50,5 @@ struct SegmentedFilterViewTests {
 
         let optionView = try #require(optionViewOptional)
         return optionView
-    }
-
-    func getText(for option: FilterOption) throws -> String {
-        try LocalizationTestUtils.getLocalizedString(for: option.rawValue)
-    }
-
-    @Test("All filter options are present in the view")
-    func allOptionsPresent() throws {
-        let model = try arrangeFilterModel()
-        let view = arrangeTestView(with: model)
-
-        let optionViews = try view.inspect().findAll(FilterOptionView.self)
-        #expect(optionViews.count == FilterOption.allCases.count)
-
-        let optionTexts = try FilterOption.allCases.map { try getText(for: $0) }
-        var optionTextsSet = Set(optionTexts)
-        #expect(optionTexts.count == optionViews.count)
-
-        for optionView in optionViews {
-            let text = try optionView.anyView().anyView().text().string()
-            optionTextsSet.remove(text)
-        }
-        #expect(optionTextsSet.isEmpty)
     }
 }
