@@ -19,12 +19,21 @@
 			remoteGlobalIDString = C9FBB3FD2D5BDEAB00B24AA5;
 			remoteInfo = Acorn;
 		};
+		C984A85F2D6A205500E2630B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9FBB3F62D5BDEAB00B24AA5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9FBB3FD2D5BDEAB00B24AA5;
+			remoteInfo = Acorn;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C95B399A2D5E9B5B00EE098A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		C95B3B2B2D5FCFA000EE098A /* AcornTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AcornTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C95B3B342D5FE4E100EE098A /* Acorn.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Acorn.xctestplan; sourceTree = "<group>"; };
+		C95B3B342D5FE4E100EE098A /* AcornUnit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AcornUnit.xctestplan; sourceTree = "<group>"; };
+		C984A8592D6A205500E2630B /* AcornUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AcornUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C99E688F2D6A5F9600EE80C2 /* AcornUI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AcornUI.xctestplan; sourceTree = "<group>"; };
 		C9FBB3FE2D5BDEAB00B24AA5 /* Acorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FBB42A2D5D164200B24AA5 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		C9FBB4E32D5D3CB600B24AA5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -39,6 +48,11 @@
 		C95B3B2C2D5FCFA000EE098A /* AcornTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = AcornTests;
+			sourceTree = "<group>";
+		};
+		C984A85A2D6A205500E2630B /* AcornUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AcornUITests;
 			sourceTree = "<group>";
 		};
 		C9FBB4002D5BDEAB00B24AA5 /* Acorn */ = {
@@ -57,6 +71,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C984A8562D6A205500E2630B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9FBB3FB2D5BDEAB00B24AA5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -70,13 +91,15 @@
 		C9FBB3F52D5BDEAB00B24AA5 = {
 			isa = PBXGroup;
 			children = (
-				C95B3B342D5FE4E100EE098A /* Acorn.xctestplan */,
+				C99E688F2D6A5F9600EE80C2 /* AcornUI.xctestplan */,
+				C95B3B342D5FE4E100EE098A /* AcornUnit.xctestplan */,
 				C95B399A2D5E9B5B00EE098A /* Localizable.xcstrings */,
 				C95B39182D5E8EEA00EE098A /* Development */,
 				C9FBB4E32D5D3CB600B24AA5 /* .swiftlint.yml */,
 				C9FBB42A2D5D164200B24AA5 /* .swiftformat */,
 				C9FBB4002D5BDEAB00B24AA5 /* Acorn */,
 				C95B3B2C2D5FCFA000EE098A /* AcornTests */,
+				C984A85A2D6A205500E2630B /* AcornUITests */,
 				C9FBB3FF2D5BDEAB00B24AA5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +109,7 @@
 			children = (
 				C9FBB3FE2D5BDEAB00B24AA5 /* Acorn.app */,
 				C95B3B2B2D5FCFA000EE098A /* AcornTests.xctest */,
+				C984A8592D6A205500E2630B /* AcornUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,6 +140,29 @@
 			productName = AcornTests;
 			productReference = C95B3B2B2D5FCFA000EE098A /* AcornTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C984A8582D6A205500E2630B /* AcornUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C984A8612D6A205500E2630B /* Build configuration list for PBXNativeTarget "AcornUITests" */;
+			buildPhases = (
+				C984A8552D6A205500E2630B /* Sources */,
+				C984A8562D6A205500E2630B /* Frameworks */,
+				C984A8572D6A205500E2630B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C984A8602D6A205500E2630B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C984A85A2D6A205500E2630B /* AcornUITests */,
+			);
+			name = AcornUITests;
+			packageProductDependencies = (
+			);
+			productName = AcornUITests;
+			productReference = C984A8592D6A205500E2630B /* AcornUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		C9FBB3FD2D5BDEAB00B24AA5 /* Acorn */ = {
 			isa = PBXNativeTarget;
@@ -154,6 +201,10 @@
 						CreatedOnToolsVersion = 16.2;
 						TestTargetID = C9FBB3FD2D5BDEAB00B24AA5;
 					};
+					C984A8582D6A205500E2630B = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = C9FBB3FD2D5BDEAB00B24AA5;
+					};
 					C9FBB3FD2D5BDEAB00B24AA5 = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -178,12 +229,20 @@
 			targets = (
 				C9FBB3FD2D5BDEAB00B24AA5 /* Acorn */,
 				C95B3B2A2D5FCFA000EE098A /* AcornTests */,
+				C984A8582D6A205500E2630B /* AcornUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C95B3B292D5FCFA000EE098A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C984A8572D6A205500E2630B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -229,6 +288,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C984A8552D6A205500E2630B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9FBB3FA2D5BDEAB00B24AA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,6 +309,11 @@
 			isa = PBXTargetDependency;
 			target = C9FBB3FD2D5BDEAB00B24AA5 /* Acorn */;
 			targetProxy = C95B3B2F2D5FCFA100EE098A /* PBXContainerItemProxy */;
+		};
+		C984A8602D6A205500E2630B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9FBB3FD2D5BDEAB00B24AA5 /* Acorn */;
+			targetProxy = C984A85F2D6A205500E2630B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -280,6 +351,40 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Acorn.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Acorn";
+			};
+			name = Release;
+		};
+		C984A8622D6A205500E2630B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 755WLDCD84;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flngsquirrl.AcornUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Acorn;
+			};
+			name = Debug;
+		};
+		C984A8632D6A205500E2630B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 755WLDCD84;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flngsquirrl.AcornUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Acorn;
 			};
 			name = Release;
 		};
@@ -470,6 +575,15 @@
 			buildConfigurations = (
 				C95B3B322D5FCFA100EE098A /* Debug */,
 				C95B3B332D5FCFA100EE098A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C984A8612D6A205500E2630B /* Build configuration list for PBXNativeTarget "AcornUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C984A8622D6A205500E2630B /* Debug */,
+				C984A8632D6A205500E2630B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

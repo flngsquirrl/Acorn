@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "6139215B-B1D6-4E3B-A41D-A00993FEEC64",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Acorn.xcodeproj",
+        "identifier" : "C984A8582D6A205500E2630B",
+        "name" : "AcornUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

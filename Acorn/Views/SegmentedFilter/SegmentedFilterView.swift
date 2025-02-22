@@ -13,6 +13,7 @@ struct SegmentedFilterView: View {
             ForEach(FilterOption.allCases, id: \.self) { option in
                 let isSelected = filterModel.isSelected(option)
                 FilterOptionView(label: option.rawValue, isSelected: isSelected)
+                    .accessibilityIdentifier("filter.all.access")
                     .onTapGesture {
                         withAnimation {
                             filterModel.toggle(option)
