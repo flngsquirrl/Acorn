@@ -10,23 +10,31 @@ struct FoodItemView: View {
     let item: FoodItem
 
     var body: some View {
-        HStack(spacing: 0) {
+        HStack {
             VStack(alignment: .leading) {
                 Text(item.name)
                     .font(.headline)
                     .lineLimit(1)
+                    .padding(.bottom)
 
-                Text(expirationNote)
-                    .font(.caption)
-            }
-            Spacer()
+                HStack(alignment: .top) {
+                    Text(expirationNote)
 
-            if showWarning {
-                Image(systemName: "exclamationmark.triangle.fill")
-                    .foregroundStyle(warningColor)
-                    .font(.title)
-                    .padding(.trailing)
+                    Spacer()
+
+                    if let actionIconName {
+                        Image(systemName: actionIconName)
+                    }
+                }
+                .font(.caption)
             }
+            .padding(.leading)
+            .padding()
+        }
+        .background(alignment: .leading) {
+            Rectangle()
+                .fill(itemColor)
+                .frame(width: 10)
         }
     }
 
@@ -41,18 +49,27 @@ struct FoodItemView: View {
         }
     }
 
-    var showWarning: Bool {
+    func isExpiring(item: FoodItem) -> Bool {
+        if case let .good(days) = item.state, days < 5 {
+            return true
+        }
+
+        return false
+    }
+
+    var actionIconName: String? {
         switch item.state {
-            case let .good(days):
-                days < 5
+            case .good:
+                isExpiring(item: item) ? "exclamationmark.triangle" : nil
             case .bad:
-                true
+                "trash"
         }
     }
 
-    var warningColor: Color {
+    var itemColor: Color {
         switch item.state {
-            case .good: .yellow
+            case .good:
+                isExpiring(item: item) ? .yellow : .green
             case .bad: .red
         }
     }
@@ -82,8 +99,6 @@ struct ContentView_Previews: PreviewProvider {
                     FoodItemView(item: itemExpiredYesterday)
                     FoodItemView(item: itemExpiresToday)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
                 .border(.secondary, width: 2)
             }
             .environment(\.locale, .init(identifier: localization))

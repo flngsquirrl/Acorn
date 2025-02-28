@@ -12,7 +12,7 @@ struct FoodItemsView: View {
 
     var body: some View {
         NavigationStack {
-            VStack {
+            VStack(spacing: 0) {
                 filter
                 list
                     .safeAreaInset(edge: .bottom, alignment: .trailing) {
@@ -20,6 +20,7 @@ struct FoodItemsView: View {
                     }
             }
             .navigationTitle("list.title")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -34,12 +35,16 @@ extension FoodItemsView {
     }
 
     var list: some View {
-        List {
-            ForEach(items) {
-                FoodItemView(item: $0)
+        ScrollView {
+            VStack {
+                ForEach(items) {
+                    FoodItemView(item: $0)
+                        .background(.background.secondary)
+                        .padding(.horizontal)
+                }
             }
         }
-        .listStyle(.plain)
+        .background(.background.secondary)
     }
 
     var addItemButton: some View {
