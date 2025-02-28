@@ -13,7 +13,7 @@ struct AddItemButton: View {
                 .bold()
                 .padding()
                 .background(
-                    RoundedRectangle(cornerRadius: 8)
+                    Rectangle()
                         .fill(Color.accentColor)
                 )
                 .foregroundStyle(.white)
