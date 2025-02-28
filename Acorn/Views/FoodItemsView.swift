@@ -7,8 +7,8 @@
 import SwiftUI
 
 struct FoodItemsView: View {
-    @State private var items = FoodItem.examples
-    @State private var filterModel = AppFilterModel()
+    var dataSource: any FoodItemsDataSource
+    var filterModel: FilterModel
 
     var body: some View {
         NavigationStack {
@@ -37,13 +37,17 @@ extension FoodItemsView {
     var list: some View {
         ScrollView {
             VStack {
-                ForEach(items) {
+                ForEach(dataSource.items) {
                     FoodItemView(item: $0)
                         .background(.background.secondary)
                         .padding(.horizontal)
                 }
             }
         }
+        .task {
+            await dataSource.load()
+        }
+        .scrollIndicators(.hidden)
         .background(.background.secondary)
     }
 
@@ -55,10 +59,12 @@ extension FoodItemsView {
 }
 
 #Preview("FoodItemsView: EN") {
-    FoodItemsView()
+    FoodItemsView(dataSource: ExampleFoodItemsDataSource(),
+                  filterModel: AppFilterModel())
 }
 
 #Preview("FoodItemsView: PL") {
-    FoodItemsView()
+    FoodItemsView(dataSource: ExampleFoodItemsDataSource(),
+                  filterModel: AppFilterModel())
         .environment(\.locale, Locale(identifier: "pl"))
 }

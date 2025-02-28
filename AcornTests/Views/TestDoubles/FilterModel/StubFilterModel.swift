@@ -1,13 +1,12 @@
 //
-// TestFilterModel.swift
+// StubFilterModel.swift
 // Acorn
 //
 // Created by flngsquirrl on 20/02/2025.
 @testable import Acorn
 
-class MockFilterModel: FilterModel {
-    var optionToggleCalls: [FilterOption: Int] = [:]
-
+@MainActor
+class StubFilterModel: FilterModel {
     var selectedOptions: Set<FilterOption> {
         .init()
     }
@@ -16,7 +15,5 @@ class MockFilterModel: FilterModel {
         false
     }
 
-    func toggle(_ option: FilterOption) {
-        optionToggleCalls[option, default: 0] += 1
-    }
+    func toggle(_: FilterOption) {}
 }

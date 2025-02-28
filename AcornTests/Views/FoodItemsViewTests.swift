@@ -11,9 +11,16 @@ import ViewInspector
 
 @MainActor
 struct FoodItemsViewTests {
+    let dataSource = StubFoodItemsDataSource()
+    let filterModel = StubFilterModel()
+
+    func arrangeTestView() -> FoodItemsView {
+        FoodItemsView(dataSource: dataSource, filterModel: filterModel)
+    }
+
     @Test("There is a button for adding new item in the view")
     func addButtonPresent() throws {
-        let view = FoodItemsView()
+        let view = arrangeTestView()
 
         let buttonText = try LocalizationTestUtils.getLocalizedString(for: "list.addItem.button")
         #expect(throws: Never.self) {
@@ -23,7 +30,7 @@ struct FoodItemsViewTests {
 
     @Test("All filter options are present in the view")
     func allOptionsPresent() throws {
-        let view = FoodItemsView()
+        let view = arrangeTestView()
 
         let optionViews = try view.inspect().findAll(FilterOptionView.self)
         #expect(optionViews.count == FilterOption.allCases.count)
@@ -37,5 +44,13 @@ struct FoodItemsViewTests {
             optionTextsSet.remove(text)
         }
         #expect(optionTextsSet.isEmpty)
+    }
+
+    @Test("Food items are displayed")
+    func foodItemsAreDisplayed() throws {
+        let testView = arrangeTestView()
+
+        let views = try testView.inspect().findAll(FoodItemView.self)
+        #expect(views.count == dataSource.items.count)
     }
 }

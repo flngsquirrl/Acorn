@@ -5,7 +5,9 @@
 // Created by flngsquirrl on 11/02/2025.
 
 import Foundation
+import Observation
 
+@Observable
 class FoodItem {
     let id = UUID()
     var name: String

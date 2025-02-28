@@ -7,8 +7,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var dataSource = AppFoodItemsDataSource()
+    @State private var filterModel = AppFilterModel()
+
     var body: some View {
-        FoodItemsView()
+        FoodItemsView(dataSource: dataSource, filterModel: filterModel)
     }
 }
 
