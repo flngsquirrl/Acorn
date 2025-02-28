@@ -19,6 +19,11 @@ struct FoodItemsView: View {
                         addItemButton
                     }
             }
+            .navigationDestination(for: UUID.self) { id in
+                if let item = dataSource.get(id: id) {
+                    FoodItemDetailsView(item: item)
+                }
+            }
             .navigationTitle("list.title")
             .navigationBarTitleDisplayMode(.inline)
         }
@@ -37,10 +42,13 @@ extension FoodItemsView {
     var list: some View {
         ScrollView {
             VStack {
-                ForEach(dataSource.items) {
-                    FoodItemView(item: $0)
-                        .background(.background.secondary)
-                        .padding(.horizontal)
+                ForEach(dataSource.items) { item in
+                    NavigationLink(value: item.id) {
+                        FoodItemView(item: item)
+                            .background(.background.secondary)
+                            .padding(.horizontal)
+                    }
+                    .tint(.primary)
                 }
             }
         }
@@ -63,8 +71,8 @@ extension FoodItemsView {
                   filterModel: AppFilterModel())
 }
 
-#Preview("FoodItemsView: PL") {
-    FoodItemsView(dataSource: ExampleFoodItemsDataSource(),
-                  filterModel: AppFilterModel())
-        .environment(\.locale, Locale(identifier: "pl"))
-}
+// #Preview("FoodItemsView: PL") {
+//    FoodItemsView(dataSource: ExampleFoodItemsDataSource(),
+//                  filterModel: AppFilterModel())
+//        .environment(\.locale, Locale(identifier: "pl"))
+// }

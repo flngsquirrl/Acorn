@@ -4,6 +4,7 @@
 //
 // Created by flngsquirrl on 28/02/2025.
 @testable import Acorn
+import Foundation
 
 class StubFoodItemsDataSource: FoodItemsDataSource {
     var items: [FoodItem] = []
@@ -21,6 +22,8 @@ class StubFoodItemsDataSource: FoodItemsDataSource {
     func delete(_: Acorn.FoodItem) {}
 
     func update(_: Acorn.FoodItem) {}
+
+    func get(id _: UUID) -> Acorn.FoodItem? { nil }
 }
 
 extension FoodItem {

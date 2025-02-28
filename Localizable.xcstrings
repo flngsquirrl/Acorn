@@ -69,6 +69,22 @@
         }
       }
     },
+    "item.details.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item details"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szczegóły produktu"
+          }
+        }
+      }
+    },
     "list.addItem.button" : {
       "extractionState" : "manual",
       "localizations" : {

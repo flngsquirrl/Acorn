@@ -50,7 +50,9 @@ struct FoodItemsViewTests {
     func foodItemsAreDisplayed() throws {
         let testView = arrangeTestView()
 
-        let views = try testView.inspect().findAll(FoodItemView.self)
+        let views = try testView.inspect().findAll(ViewType.NavigationLink.self).compactMap {
+            try $0.labelView().find(FoodItemView.self)
+        }
         #expect(views.count == dataSource.items.count)
     }
 }

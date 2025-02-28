@@ -3,6 +3,7 @@
 // Acorn
 //
 // Created by flngsquirrl on 28/02/2025.
+import Foundation
 import Observation
 
 @MainActor
@@ -32,5 +33,9 @@ class ExampleFoodItemsDataSource: FoodItemsDataSource {
         if let index = getIndex(of: item) {
             items[index] = item
         }
+    }
+
+    func get(id: UUID) -> FoodItem? {
+        items.first { $0.id == id }
     }
 }

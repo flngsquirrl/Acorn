@@ -14,4 +14,6 @@ protocol DataSource {
     func add(_ item: Item)
     func delete(_ item: Item)
     func update(_ item: Item)
+
+    func get(id: Item.ID) -> Item?
 }
