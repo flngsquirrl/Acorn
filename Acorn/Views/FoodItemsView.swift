@@ -24,8 +24,6 @@ struct FoodItemsView: View {
                     FoodItemDetailsView(item: item)
                 }
             }
-            .navigationTitle("list.title")
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
