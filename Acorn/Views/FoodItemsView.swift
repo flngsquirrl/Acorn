@@ -35,7 +35,7 @@ extension FoodItemsView {
         SegmentedFilterView(filterModel: filterModel)
             .padding(.vertical, 10)
             .padding(.horizontal)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity)
             .background(.background.secondary)
     }
 

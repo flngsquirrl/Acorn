@@ -16,15 +16,14 @@ struct FilterOptionView: View {
     var body: some View {
         Text(localizedLabel)
             .font(.footnote)
-            .bold()
-            .padding(.vertical, 10)
+            .padding(.vertical, 6)
             .padding(.horizontal)
             .background(
                 Rectangle()
                     .strokeBorder(lineWidth: isSelected ? 0 : 1)
-                    .fill(isSelected ? .accent : .clear)
+                    .fill(isSelected ? Color.primary : .clear)
             )
-            .foregroundStyle(isSelected ? .white : .primary.opacity(0.7))
+            .foregroundStyle(isSelected ? Color.background : .primary)
             .minHitTarget()
             .contentShape(Rectangle())
     }
