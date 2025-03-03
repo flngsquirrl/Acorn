@@ -16,7 +16,8 @@ extension UINavigationController: @retroactive UIGestureRecognizerDelegate {
         viewControllers.count > 1
     }
 
-    public func gestureRecognizer(_: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith _: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizer(_: UIGestureRecognizer,
+                                  shouldRecognizeSimultaneouslyWith _: UIGestureRecognizer) -> Bool {
         true
     }
 }
