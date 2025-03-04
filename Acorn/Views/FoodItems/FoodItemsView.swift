@@ -58,9 +58,12 @@ extension FoodItemsView {
     }
 
     var addItemButton: some View {
-        AddItemButton()
-            .padding([.bottom, .trailing])
-            .padding(.top, 20)
+        Button {} label: {
+            Label("list.addItem.button", systemImage: "plus")
+        }
+        .buttonStyle(.primary)
+        .padding([.bottom, .trailing])
+        .padding(.top, 20)
     }
 }
 
