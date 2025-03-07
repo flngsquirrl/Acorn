@@ -10,6 +10,8 @@ struct FoodItemsView: View {
     var dataSource: any FoodItemsDataSource
     var filterModel: FilterModel
 
+    @State private var showNewItemView = false
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
@@ -23,6 +25,9 @@ struct FoodItemsView: View {
                 if let item = dataSource.get(id: id) {
                     FoodItemDetailsView(item: item)
                 }
+            }
+            .fullScreenCover(isPresented: $showNewItemView) {
+                NewFoodItemView()
             }
         }
     }
@@ -58,7 +63,9 @@ extension FoodItemsView {
     }
 
     var addItemButton: some View {
-        Button {} label: {
+        Button {
+            showNewItemView.toggle()
+        } label: {
             Label("list.addItem.button", systemImage: "plus")
         }
         .buttonStyle(.primary)

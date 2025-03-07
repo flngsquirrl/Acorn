@@ -24,6 +24,10 @@ extension ButtonStyle where Self == AppButtonStyle<ButtonLabelModifier> {
     static var secondary: AppButtonStyle<ButtonLabelModifier> {
         AppButtonStyle(labelModifier: ButtonLabelModifier(accented: false))
     }
+
+    static var support: AppButtonStyle<ButtonLabelModifier> {
+        AppButtonStyle(labelModifier: ButtonLabelModifier(accented: false))
+    }
 }
 
 #Preview {

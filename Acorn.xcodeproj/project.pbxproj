@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C945F3E82D662B6D00C7A20C /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = C945F3E72D662B6D00C7A20C /* ViewInspector */; };
 		C95B399B2D5E9B5B00EE098A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C95B399A2D5E9B5B00EE098A /* Localizable.xcstrings */; };
+		C9E964AE2D73AD2D00617AFE /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C9E964AD2D73AD2D00617AFE /* InfoPlist.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +27,7 @@
 		C95B3B2B2D5FCFA000EE098A /* AcornTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AcornTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C95B3B342D5FE4E100EE098A /* Acorn.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Acorn.xctestplan; sourceTree = "<group>"; };
 		C9ADB4692D7B2E4500FE1D79 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C9E964AD2D73AD2D00617AFE /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		C9FBB3FE2D5BDEAB00B24AA5 /* Acorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FBB42A2D5D164200B24AA5 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		C9FBB4E32D5D3CB600B24AA5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		C9FBB3F52D5BDEAB00B24AA5 = {
 			isa = PBXGroup;
 			children = (
+				C9E964AD2D73AD2D00617AFE /* InfoPlist.xcstrings */,
 				C95B3B342D5FE4E100EE098A /* Acorn.xctestplan */,
 				C95B399A2D5E9B5B00EE098A /* Localizable.xcstrings */,
 				C95B39182D5E8EEA00EE098A /* Development */,
@@ -173,6 +176,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pl,
 			);
 			mainGroup = C9FBB3F52D5BDEAB00B24AA5;
 			minimizedProjectReferenceProxies = 1;
@@ -202,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E964AE2D73AD2D00617AFE /* InfoPlist.xcstrings in Resources */,
 				C95B399B2D5E9B5B00EE098A /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +355,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -406,6 +412,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -422,6 +429,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Your camera is used to scan dates";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -452,6 +460,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Your camera is used to scan dates";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

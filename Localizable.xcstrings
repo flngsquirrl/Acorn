@@ -1,6 +1,15 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Apply" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Close" : {
+
+    },
     "filter.all" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -68,6 +77,12 @@
           }
         }
       }
+    },
+    "Good until" : {
+
+    },
+    "Item name" : {
+
     },
     "item.details.title" : {
       "localizations" : {
@@ -272,6 +287,15 @@
           }
         }
       }
+    },
+    "New item" : {
+
+    },
+    "Pick a date" : {
+
+    },
+    "Save" : {
+
     }
   },
   "version" : "1.0"

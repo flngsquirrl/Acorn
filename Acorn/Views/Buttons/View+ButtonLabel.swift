@@ -21,7 +21,7 @@ struct ButtonLabelModifier: ViewModifier {
                 Rectangle()
                     .fill(accented ? .accent : .clear)
                     .border(.primary, width: accented ? 0 : 2))
-            .foregroundStyle(.white)
+            .foregroundStyle(accented ? .white : .primary)
     }
 }
 
