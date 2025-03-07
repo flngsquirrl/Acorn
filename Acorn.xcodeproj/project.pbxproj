@@ -25,6 +25,7 @@
 		C95B399A2D5E9B5B00EE098A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		C95B3B2B2D5FCFA000EE098A /* AcornTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AcornTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C95B3B342D5FE4E100EE098A /* Acorn.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Acorn.xctestplan; sourceTree = "<group>"; };
+		C9ADB4692D7B2E4500FE1D79 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C9FBB3FE2D5BDEAB00B24AA5 /* Acorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FBB42A2D5D164200B24AA5 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		C9FBB4E32D5D3CB600B24AA5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -39,6 +40,11 @@
 		C95B3B2C2D5FCFA000EE098A /* AcornTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = AcornTests;
+			sourceTree = "<group>";
+		};
+		C9ADB4682D7B2E4500FE1D79 /* Readme */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Readme;
 			sourceTree = "<group>";
 		};
 		C9FBB4002D5BDEAB00B24AA5 /* Acorn */ = {
@@ -78,6 +84,8 @@
 				C9FBB4002D5BDEAB00B24AA5 /* Acorn */,
 				C95B3B2C2D5FCFA000EE098A /* AcornTests */,
 				C9FBB3FF2D5BDEAB00B24AA5 /* Products */,
+				C9ADB4682D7B2E4500FE1D79 /* Readme */,
+				C9ADB4692D7B2E4500FE1D79 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
